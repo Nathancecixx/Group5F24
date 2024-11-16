@@ -5,14 +5,21 @@ import { createStackNavigator } from '@react-navigation/stack';
 import DashboardScreen from '../Screens/HMI/DashboardScreen';
 import RecordingScreen from '../Screens/HMI/RecordingScreen';
 import TripResultScreen from '../Screens/HMI/TripResultScreen';
-
+import RegistrationForm from '../Screens/RegistrationForm';
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Dashboard">
+      <Stack.Navigator initialRouteName="Registration">
+        <Stack.Screen
+          name="Registration"
+          component={RegistrationForm}
+          options={{ title: 'Register', 
+                     headerLeft: () => null,}} // This hides the back button
+        />
+
         <Stack.Screen 
           name="Dashboard" 
           component={DashboardScreen} 
