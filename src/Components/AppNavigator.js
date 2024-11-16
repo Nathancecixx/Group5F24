@@ -1,36 +1,45 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { colors } from '../Styles/StyleSheet'; // Import colors for styling
 
-import RecordingScreen from '../Screens/HMI/RecordingScreen'; // Keep as-is
-import RegistrationForm from '../Screens/RegistrationForm'; // Your part
+import DashboardScreen from '../Screens/HMI/DashboardScreen';
+import RecordingScreen from '../Screens/HMI/RecordingScreen';
+import TripResultScreen from '../Screens/HMI/TripResultScreen';
+import RegistrationForm from '../Screens/RegistrationForm';
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Registration"
-        screenOptions={{
-          headerStyle: { backgroundColor: colors.primary }, // Header background for consistency
-          headerTintColor: colors.background, // Header text and icons color
-          headerTitleStyle: { fontWeight: 'bold' }, // Bold titles for clarity
-        }}
-      >
-        {/* RegistrationForm Screen - Your Part */}
+      <Stack.Navigator initialRouteName="Registration">
         <Stack.Screen
           name="Registration"
           component={RegistrationForm}
-          options={{ title: 'Register' }} // Title for the Registration screen
+          options={{ title: 'Register', 
+                     headerLeft: () => null,}} // This hides the back button
         />
 
-        {/* RecordingScreen - Leave untouched */}
-        <Stack.Screen
-          name="Recording"
-          component={RecordingScreen} // No changes made
-          options={{ title: 'Recording' }} // Keep title as it is
+        <Stack.Screen 
+          name="Dashboard" 
+          component={DashboardScreen} 
+          options={{ title: 'Dashboard',
+                     headerLeft: () => null, // This hides the back button
+                  }}
+        />
+        <Stack.Screen 
+          name="Recording" 
+          component={RecordingScreen} 
+          options={{ title: 'Recording', 
+                     headerLeft: () => null, // This hides the back button
+                  }}
+        />
+        <Stack.Screen 
+          name="TripResultScreen" 
+          component={TripResultScreen} 
+          options={{ title: 'TripResultScreen', 
+                     headerLeft: () => null, // This hides the back button
+                  }}
         />
       </Stack.Navigator>
     </NavigationContainer>

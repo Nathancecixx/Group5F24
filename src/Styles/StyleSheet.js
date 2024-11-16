@@ -22,10 +22,26 @@ export const globalStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  header: {
+    fontSize: 24,
+    marginBottom: 20,
+    textAlign: 'center',
+    color: '#1E90FF',
+    fontWeight: 'bold',
+  },
+  statCardContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   statusText: {
     fontSize: 20,
     color: colors.textPrimary,
     marginTop: 20,
+  },
+  card: {
+    marginBottom: 15,
+    width: 300,
   },
   button: {
     marginTop: 30,
@@ -40,6 +56,25 @@ export const globalStyles = StyleSheet.create({
   },
   activityIndicator: {
     color: colors.primary,
+  },
+  centeredContainer: {
+    flex: 1,
+    backgroundColor: colors.background,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+  },
+  checkmarkIcon: {
+    fontSize: 150,
+    color: colors.success,
+    marginBottom: 30,
+  },
+  successMessage: {
+    fontSize: 32,
+    color: colors.success,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
   },
 });
 
