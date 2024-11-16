@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import DashboardScreen from '../Screens/HMI/DashboardScreen';
 import RecordingScreen from '../Screens/HMI/RecordingScreen';
 import TripResultScreen from '../Screens/HMI/TripResultScreen';
+import CognitiveTestScreen from '../Screens/HMI/CognitiveTestScreen';
 
 
 const Stack = createStackNavigator();
@@ -33,7 +34,15 @@ const AppNavigator = () => {
           options={{ title: 'TripResultScreen', 
                      headerLeft: () => null, // This hides the back button
                   }}
-        />
+              />
+              <Stack.Screen
+                  name="CognitiveTest" 
+                  component={CognitiveTestScreen}
+                  options={{
+                      title: 'Cognitive Test',
+                      headerLeft: () => null, 
+                  }}
+              />
       </Stack.Navigator>
     </NavigationContainer>
   );
