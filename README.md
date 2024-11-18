@@ -15,7 +15,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/Nathancecixx/Group5F24">
     <img src="assets/DriveAware_Logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -23,6 +23,11 @@
 
   <p align="center">
     An easy to use phone app for collecting driving data
+    <br />
+    <a href="https://github.com/Nathancecixx/Group5F24Backend"><strong>Check out the backend »</strong></a>
+    <br />
+    <br />
+  
   </p>
 </div>
 
@@ -45,9 +50,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
