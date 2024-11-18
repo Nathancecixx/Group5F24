@@ -26,7 +26,7 @@ const DashboardScreen = ({ navigation }) => {
 
       <Button 
         mode="outlined" 
-        onPress={() => navigation.navigate('Recording')}
+        onPress={() => navigation.navigate('CognitiveTest')}
         style={globalStyles.button}
       >
         <Text> Start Drive </Text>

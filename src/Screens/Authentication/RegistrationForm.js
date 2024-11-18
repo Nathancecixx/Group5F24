@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { globalStyles, colors } from '../Styles/StyleSheet'; // Update the import path
+import { globalStyles, colors } from '../../Styles/StyleSheet';
 
-const RegistrationForm = ({ navigation }) => { // Add navigation as a prop
+const RegistrationForm = ({ navigation }) => {
   // State variables for form inputs
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,7 +37,7 @@ const RegistrationForm = ({ navigation }) => { // Add navigation as a prop
     // Clear error and set success message
     setError('');
     setSuccess('Registration successful!');
-    navigation.navigate('Recording'); // Navigate to the Recording screen
+    navigation.navigate('LoginScreen');
   };
 
   return (
@@ -81,6 +81,14 @@ const RegistrationForm = ({ navigation }) => { // Add navigation as a prop
       {/* Register Button */}
       <TouchableOpacity style={globalStyles.button} onPress={handleRegister}>
         <Text style={globalStyles.buttonText}>Register</Text>
+      </TouchableOpacity>
+
+      {/* Navigate to Login */}
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Login')}
+        style={{ marginTop: 20 }}
+      >
+        <Text style={{ color: colors.primary }}>Already have an account? Login</Text>
       </TouchableOpacity>
     </View>
   );
