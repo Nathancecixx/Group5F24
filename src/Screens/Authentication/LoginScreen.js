@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { globalStyles, colors } from '../Styles/StyleSheet';
+import { globalStyles, colors } from '../../Styles/StyleSheet';
 
 const LoginPage = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -16,7 +16,10 @@ const LoginPage = ({ navigation }) => {
       return;
     }
 
-    try {
+    setSuccess('Login Successful!');
+    setError('');
+    navigation.navigate('Dashboard');
+    /*try {
       // Mock backend call (replace with real backend integration)
       const response = await fetch('http://localhost:5000/api/login', {
         method: 'POST',
@@ -36,7 +39,7 @@ const LoginPage = ({ navigation }) => {
       }
     } catch (err) {
       setError('An error occurred. Please try again later.');
-    }
+    }*/
   };
 
   return (
