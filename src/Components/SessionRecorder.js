@@ -32,6 +32,23 @@ const SessionRecorder = ({ recording, paused }) => {
     };
   }, [recording, paused]);
 
+  const calculateDistance = (lat1, lon1, lat2, lon2) => {
+      const R = 6371; // Radius of the Earth in km
+      const dLat = (lat2 - lat1) * (Math.PI / 180);
+      const dLon = (lon2 - lon1) * (Math.PI / 180);
+
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * (Math.PI / 180)) *
+          Math.cos(lat2 * (Math.PI / 180)) *
+          Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const distance = R * c; // Distance in km
+      return distance; // Return distance in km
+  };
+
+
   const startLocationUpdates = async () => {
 
     // Check if its already running
@@ -67,10 +84,24 @@ const SessionRecorder = ({ recording, paused }) => {
           };
 
           // Append onto list of locations
-          setDriveSession((prevSession) => ({
-            ...prevSession,
-            locations: [...prevSession.locations, newLocation],
-          }));
+          setDriveSession((prevSession) => {
+            const lastLocation = prevSession.locations[prevSession.locations.length - 1];
+            let distance = 0;
+            if (lastLocation) {
+              distance = calculateDistance(
+                lastLocation.latitude,
+                lastLocation.longitude,
+                latitude,
+                longitude
+              );
+          } 
+
+            return {
+              ...prevSession,
+              locations: [...prevSession.locations, newLocation],
+              totalDistance: prevSession.totalDistance + distance,
+            };
+          });
         }
       );
     } catch (error) {

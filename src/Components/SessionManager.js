@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { BACKEND_IP } from '@env';
 
 const DriveSessionManager = () => {
 
@@ -9,15 +10,28 @@ const DriveSessionManager = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+
+// Function to be called periodically and attempt 
+//to send all queued sessions to backend
   const processQueue = async () => {
+    // Get the JWT token from AsyncStorage
+    const token = await AsyncStorage.getItem('userToken');
+    if (!token) {
+      console.log('No JWT token found. Cannot process the queue.');
+      return;
+    }
+
     let queuedSessions = JSON.parse(await AsyncStorage.getItem('driveSessionsQueue')) || [];
     const sessionsToKeep = [];
 
     for (const session of queuedSessions) {
       try {
-        const response = await fetch('http://YOUR_IP_ADDRESS:5000/session', {
+        const response = await fetch(`${BACKEND_IP}/upload-session`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` // Include JWT
+          },
           body: JSON.stringify(session),
         });
 
