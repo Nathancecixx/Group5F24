@@ -63,11 +63,11 @@ const MathTestScreen = ({ navigation }) => {
         const isCorrect = answer === correctAnswer;
         if (isCorrect) {
             Alert.alert(`Correct! You took ${timeTakenInSeconds.toFixed(2)} seconds. You can now start driving!`);
+            navigation.navigate('Recording');  // Navigate to Recording screen to start driving
         } else {
-            Alert.alert(`Wrong! The correct answer is ${correctAnswer}. You took ${timeTakenInSeconds.toFixed(2)} seconds. Drive Safe!`);
+            Alert.alert(`Wrong! The correct answer is ${correctAnswer}. You took ${timeTakenInSeconds.toFixed(2)} seconds. You may not be ready to drive yet...`);
+            navigation.navigate('Dashboard');  // Navigate back to dashboard
         }
-
-        navigation.navigate('Recording');  // Navigate to Recording screen to start driving
     };
 
     useEffect(() => {

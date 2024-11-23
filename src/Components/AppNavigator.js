@@ -10,6 +10,8 @@ import DashboardScreen from '../Screens/HMI/DashboardScreen';
 import RecordingScreen from '../Screens/HMI/RecordingScreen';
 import TripResultScreen from '../Screens/HMI/TripResultScreen';
 import CognitiveTestScreen from '../Screens/DriveTests/CognitiveTestScreen';
+import ColorTestScreen from '../Screens/DriveTests/ColorIdentificationTestScreen';
+import MathTestScreen from '../Screens/DriveTests/MathTestScreen';
 import RegistrationForm from '../Screens/Authentication/RegistrationForm';
 import LoginScreen from '../Screens/Authentication/LoginScreen';
 
@@ -62,6 +64,24 @@ const AppNavigator = () => {
           component={CognitiveTestScreen}
           options={{
             title: 'CognitiveTest',
+            gestureEnabled: false, // Disable swipe back gesture 
+            headerLeft: () => null, // This hides the back button
+          }}
+        />
+        <Stack.Screen
+          name="ColorTest"
+          component={ColorTestScreen}
+          options={{
+            title: 'ColorTest',
+            gestureEnabled: false, // Disable swipe back gesture 
+            headerLeft: () => null, // This hides the back button
+          }}
+        />
+        <Stack.Screen
+          name="MathTest"
+          component={MathTestScreen}
+          options={{
+            title: 'MathTest',
             gestureEnabled: false, // Disable swipe back gesture 
             headerLeft: () => null, // This hides the back button
           }}

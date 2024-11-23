@@ -13,7 +13,7 @@ const DashboardScreen = ({ navigation }) => {
   ];
 
     const startRandomTest = () => {
-        const testScreens = ['CognitiveTest', 'MathTest', 'ColorIdentificationTest'];
+        const testScreens = ['CognitiveTest', 'MathTest', 'ColorTest'];
         const randomTest = testScreens[Math.floor(Math.random() * testScreens.length)];
 
         // Debug: Log the test screen chosen
