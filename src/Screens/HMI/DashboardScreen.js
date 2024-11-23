@@ -12,6 +12,16 @@ const DashboardScreen = ({ navigation }) => {
     { title: 'Average Speed', value: '65 MPH' },
   ];
 
+    const startRandomTest = () => {
+        const testScreens = ['CognitiveTest', 'MathTest', 'ColorIdentificationTest'];
+        const randomTest = testScreens[Math.floor(Math.random() * testScreens.length)];
+
+        // Debug: Log the test screen chosen
+        console.log("Navigating to test screen:", randomTest);
+
+        navigation.navigate(randomTest); // Navigate to the randomly selected screen
+    };
+
   return (
     <ScrollView contentContainerStyle={globalStyles.container}>
       <Text style={globalStyles.header}>Your Driving Stats</Text>
@@ -25,8 +35,8 @@ const DashboardScreen = ({ navigation }) => {
       ))}
 
       <Button 
-        mode="outlined" 
-        onPress={() => navigation.navigate('CognitiveTest')}
+        mode="outlined"
+        onPress={startRandomTest}
         style={globalStyles.button}
       >
         <Text> Start Drive </Text>
