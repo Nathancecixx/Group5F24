@@ -2,15 +2,17 @@ import { StyleSheet } from 'react-native';
 
 // Define color palette
 export const colors = {
-  primary: '#1E90FF', // Blue for primary buttons and activity indicator
-  secondary: '#FF6347', // Tomato color for accents
+  primary: '#4885ED', // Vivid Blue
+  secondary: '#9E6FEF', // Bright Purple for accents
   background: '#FFFFFF', // White background
-  backgroundAccent: '#F5F5F5', // Light gray background for accents
-  textPrimary: '#333333', // Dark gray for primary text
+  backgroundAccent: '#F0F4FF', // Soft blue
+  textPrimary: '#2B2B2B', // Dark gray for primary text
   textSecondary: '#666666', // Lighter gray for secondary text
   success: '#28a745', // Green for success messages or indicators
   error: '#dc3545', // Red for errors
   warning: '#ffc107', // Yellow for warnings
+  inputBackground: '#A8E6CF', // Muted Aqua for input fields
+  buttonHover: '#3778C2', // Slightly darker blue for button hover
 };
 
 // Define global styles
@@ -75,6 +77,11 @@ export const globalStyles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+  },
+//AppNavigator
+  logoutButton: {
+    marginRight: 15,
+    padding: 10,
   },
 });
 

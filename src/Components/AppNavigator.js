@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Button, Text, Alert } from 'react-native';
+import { Button, Text, Alert, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -12,7 +13,9 @@ import CognitiveTestScreen from '../Screens/DriveTests/CognitiveTestScreen';
 import RegistrationForm from '../Screens/Authentication/RegistrationForm';
 import LoginScreen from '../Screens/Authentication/LoginScreen';
 
-import { colors } from '../Styles/StyleSheet';
+import LogoutButton from './LogoutButton';
+
+import { colors, globalStyles} from '../Styles/StyleSheet';
 
 const Stack = createStackNavigator();
 
@@ -25,7 +28,8 @@ const AppNavigator = () => {
           component={RegistrationForm}
           options={{
             title: '',
-            headerLeft: () => null, // This hides the back button
+            headerShown: false, // Hides the header
+            gestureEnabled: false, // Disable swipe back gesture
           }}
         />
         <Stack.Screen
@@ -33,23 +37,22 @@ const AppNavigator = () => {
           component={LoginScreen}
           options={{
             title: '',
-            headerLeft: () => null, // This hides the back button
+            headerShown: false, // Hides the header
+            gestureEnabled: false, // Disable swipe back gesture
           }}
         />
         <Stack.Screen
           name="Dashboard"
           component={DashboardScreen}
           options={({ navigation }) => ({
-            title: 'Dashboard',
-            headerLeft: () => null, // This hides the back button
-            headerRight: () => (
-              <Button
-                onPress={() => {
-                  Alert.alert('Successfully Logged Out.');
-                  navigation.navigate('Login');
-                }}
-                title="Logout"
-                color={colors.error}
+            title: '',
+            gestureEnabled: false, // Disable swipe back gesture
+            headerLeft: () => null, // Hides the back button
+            headerRight: () => (<LogoutButton navigation={navigation}/>),
+            headerBackground: () => (
+              <Image
+                source={require("../../assets/Auth_Background.png")}
+                style={styles.headerBackground}
               />
             ),
           })}
@@ -58,7 +61,8 @@ const AppNavigator = () => {
           name="CognitiveTest"
           component={CognitiveTestScreen}
           options={{
-            title: 'CognitiveTest', 
+            title: 'CognitiveTest',
+            gestureEnabled: false, // Disable swipe back gesture 
             headerLeft: () => null, // This hides the back button
           }}
         />
@@ -67,6 +71,7 @@ const AppNavigator = () => {
           component={RecordingScreen}
           options={{
             title: 'Recording', 
+            gestureEnabled: false, // Disable swipe back gesture
             headerLeft: () => null, // This hides the back button
           }}
         />
@@ -75,6 +80,7 @@ const AppNavigator = () => {
           component={TripResultScreen}
           options={{
             title: 'Trip Results', 
+            gestureEnabled: false, // Disable swipe back gesture
             headerLeft: () => null, // This hides the back button
           }}
         />
@@ -82,5 +88,16 @@ const AppNavigator = () => {
     </NavigationContainer>
   );
 };
+
+
+const styles = StyleSheet.create({
+  headerBackground: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+  },
+});
+
+
 
 export default AppNavigator;

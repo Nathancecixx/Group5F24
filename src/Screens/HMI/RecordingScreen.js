@@ -4,7 +4,6 @@ import { Text, Button } from 'react-native-paper';
 import { globalStyles, colors } from '../../Styles/StyleSheet';
 
 import SessionRecorder from '../../Components/SessionRecorder';
-import DriveSessionManager from '../../Components/SessionManager';
 
 const RecordingScreen = ({ navigation }) => {
   const [recording, setRecording] = useState(true);

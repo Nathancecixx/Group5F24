@@ -34,5 +34,8 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 /.vs
+
+.env
+
 .idea/vcs.xml
 /.idea
