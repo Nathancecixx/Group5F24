@@ -51,7 +51,10 @@ const DashboardScreen = ({ navigation }) => {
     console.error('Error fetching user stats:', error);
   }
 };
-
+  
+    const startRandomTest = () => {
+        const testScreens = ['CognitiveTest', 'MathTest', 'ColorTest'];
+        const randomTest = testScreens[Math.floor(Math.random() * testScreens.length)];
 
   useEffect(() => {
     fetchUserStats(); // Call the function when component mounts

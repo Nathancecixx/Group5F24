@@ -48,11 +48,11 @@ const ColorIdentificationTestScreen = ({ navigation }) => {
         // Provide feedback
         if (answer === correctAnswer) {
             Alert.alert(`Correct! You took ${timeTakenInSeconds.toFixed(2)} seconds. You can start driving now`);
+            navigation.navigate('Recording'); // Navigate to the recording screen
         } else {
-            Alert.alert(`Wrong! The correct answer was ${correctAnswer}. Drive Safe!`);
+            Alert.alert(`Wrong! The correct answer was ${correctAnswer}. You may not be ready to drive yet...`);
+            navigation.navigate('Dashboard');  // Navigate back to dashboard
         }
-
-        navigation.navigate('Recording'); // Navigate to the next screen
     };
 
     useEffect(() => {
