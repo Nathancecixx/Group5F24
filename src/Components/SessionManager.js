@@ -44,11 +44,10 @@ const DriveSessionManager = () => {
         }
       } catch (error) {
         console.error('Error sending drive session:', error);
-        // On error, keep the remaining sessions and exit the loop
-        sessionsToKeep.push(session, ...queuedSessions.slice(queuedSessions.indexOf(session) + 1));
-        break;
+        sessionsToKeep.push(session);
       }
     }
+
 
     await AsyncStorage.setItem('driveSessionsQueue', JSON.stringify(sessionsToKeep));
   };

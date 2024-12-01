@@ -21,7 +21,7 @@ const SessionRecorder = ({ recording, paused }) => {
       startLocationUpdates();
     } else {
       stopLocationUpdates();
-      if (!recording) {
+      if (!recording && driveSession['totalDistance'] != 0) {
         saveDriveSession();
       }
     }
